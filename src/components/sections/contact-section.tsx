@@ -53,7 +53,7 @@ export function ContactSection() {
 
             <div className="space-y-4 md:space-y-8">
               <a
-                href="mailto:info@workspace-sport.ru"
+                href="mailto:tonisport@mail.ru"
                 className={`group block transition-all duration-700 ${
                   isVisible ? "translate-x-0 opacity-100" : "-translate-x-16 opacity-0"
                 }`}
@@ -64,7 +64,23 @@ export function ContactSection() {
                   <span className="font-mono text-xs text-foreground/60">Email</span>
                 </div>
                 <p className="text-base text-foreground transition-colors group-hover:text-foreground/70 md:text-2xl">
-                  info@workspace-sport.ru
+                  tonisport@mail.ru
+                </p>
+              </a>
+
+              <a
+                href="tel:+79835207778"
+                className={`group block transition-all duration-700 ${
+                  isVisible ? "translate-x-0 opacity-100" : "-translate-x-16 opacity-0"
+                }`}
+                style={{ transitionDelay: "280ms" }}
+              >
+                <div className="mb-1 flex items-center gap-2">
+                  <Icon name="Phone" size={12} className="text-foreground/60" />
+                  <span className="font-mono text-xs text-foreground/60">Телефон</span>
+                </div>
+                <p className="text-base text-foreground transition-colors group-hover:text-foreground/70 md:text-2xl">
+                  +7 983 520-77-78
                 </p>
               </a>
 
@@ -76,9 +92,9 @@ export function ContactSection() {
               >
                 <div className="mb-1 flex items-center gap-2">
                   <Icon name="MapPin" size={12} className="text-foreground/60" />
-                  <span className="font-mono text-xs text-foreground/60">Производство</span>
+                  <span className="font-mono text-xs text-foreground/60">Адрес</span>
                 </div>
-                <p className="text-base text-foreground md:text-2xl">Москва, Россия</p>
+                <p className="text-base text-foreground md:text-2xl">г. Омск, ул. Дианова, д. 39</p>
               </div>
 
               <div
