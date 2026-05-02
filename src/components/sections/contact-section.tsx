@@ -2,6 +2,7 @@ import { useReveal } from "@/hooks/use-reveal"
 import { useState, type FormEvent } from "react"
 import { MagneticButton } from "@/components/magnetic-button"
 import Icon from "@/components/ui/icon"
+import func2url from "../../../backend/func2url.json"
 
 export function ContactSection() {
   const { ref, isVisible } = useReveal(0.3)
@@ -12,22 +13,22 @@ export function ContactSection() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
-      return
-    }
+    if (!formData.name || !formData.email || !formData.message) return
 
     setIsSubmitting(true)
 
-    // Simulate form submission (replace with actual API call later)
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-
-    setIsSubmitting(false)
-    setSubmitSuccess(true)
-    setFormData({ name: "", email: "", message: "" })
-
-    // Reset success message after 5 seconds
-    setTimeout(() => setSubmitSuccess(false), 5000)
+    try {
+      await fetch(func2url["send-email"], {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+      setSubmitSuccess(true)
+      setFormData({ name: "", email: "", message: "" })
+      setTimeout(() => setSubmitSuccess(false), 5000)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
